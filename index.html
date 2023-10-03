@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/css/main.css" />
+    <script type="module" src="./js/script.js"></script>
+    <script type="module" src="./js/login.js"></script>
+  </head>
+  <body>
+    <form>
+      <h2>Login</h2>
+      <div>
+        <label for="login-email">Din e-postadresse</label>
+        <input id="login-email" type="text" value="" />
+      </div>
+      <div>
+        <label for="login-password">Ditt passord</label>
+        <input id="login-password" type="password" value="" />
+      </div>
+      <div id="login-message"></div>
+      <button id="login-button" type="submit">Login</button>
+    </form>
+
+    <form>
+      <h2>Register</h2>
+      <div>
+        <label for="register-name">Ditt navn</label>
+        <input id="register-name" type="text" />
+      </div>
+      <div>
+        <label for="register-email">Din e-postadresse</label>
+        <input id="register-email" type="text" />
+      </div>
+      <div>
+        <label for="register-password">Ditt passord</label>
+        <input id="register-password" type="password" />
+      </div>
+      <button id="register-button">Register</button>
+    </form>
+  </body>
+</html>

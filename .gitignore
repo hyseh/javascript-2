@@ -1,0 +1,5 @@
+# ignore specific files
+
+# ignore specific folders
+dist/
+node_modules/
