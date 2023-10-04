@@ -1,10 +1,15 @@
 const logoutButton = document.querySelector('#logout-button');
+const logoutMessage = document.querySelector('#logout-message');
 
 logoutButton.addEventListener('click', () => {
   localStorage.removeItem('token');
-  console.log('you logged out');
+  let successMessage = 'Success! You logged out.';
+  let style = 'logout-success';
+  logoutMessage.innerHTML = `
+    <p class="${style}">${successMessage}</p>
+    `;
   setTimeout(() => {
-    window.location = '../index.html';
+    window.location = './index.html';
   }, 1000);
 });
 

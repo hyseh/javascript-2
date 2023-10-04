@@ -26,7 +26,6 @@ async function loginUser() {
 
 const loginValidation = (data) => {
   if (data.errors) {
-    // localStorage.removeItem('token');
     let errorMessage = data.errors[0].message;
     let style = 'login-error';
     loginMessage.innerHTML = `
@@ -34,8 +33,14 @@ const loginValidation = (data) => {
     `;
   } else {
     localStorage.setItem('token', data.accessToken);
-    loginMessage.innerHTML = ``;
-    window.location = '../post-page.html';
+    let successMessage = 'Success! You logged in.';
+    let style = 'login-success';
+    loginMessage.innerHTML = `
+    <p class="${style}">${successMessage}</p>
+    `;
+    setTimeout(() => {
+      window.location = './post-page.html';
+    }, 1000);
   }
 };
 

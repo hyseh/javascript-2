@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="./dist/css/main.css" />
     <script type="module" src="./js/script.js"></script>
     <script type="module" src="./js/login.js"></script>
+    <script type="module" src="./js/register.js"></script>
   </head>
   <body>
     <form>
       <h2>Login</h2>
       <div>
         <label for="login-email">Din e-postadresse</label>
-        <input id="login-email" type="text" value="" />
+        <input id="login-email" type="text" />
       </div>
       <div>
         <label for="login-password">Ditt passord</label>
-        <input id="login-password" type="password" value="" />
+        <input id="login-password" type="password" />
       </div>
       <div id="login-message"></div>
       <button id="login-button" type="submit">Login</button>
@@ -28,15 +29,19 @@
       <div>
         <label for="register-name">Ditt navn</label>
         <input id="register-name" type="text" />
+        <div id="register-name__error"></div>
       </div>
       <div>
         <label for="register-email">Din e-postadresse</label>
         <input id="register-email" type="text" />
+        <div id="register-email__error"></div>
       </div>
       <div>
         <label for="register-password">Ditt passord</label>
         <input id="register-password" type="password" />
+        <div id="register-password__error"></div>
       </div>
+      <div id="register-message"></div>
       <button id="register-button">Register</button>
     </form>
   </body>
