@@ -6,10 +6,10 @@ const myFunc = () => {
       window.location.pathname === '/index.html') ||
     window.location.pathname === '/'
   ) {
-    window.location.href = './post-page.html';
+    window.location.href = './feed.html';
   } else if (
     !localStorage.getItem('token') &&
-    window.location.pathname === '/post-page.html'
+    window.location.pathname === '/feed.html'
   ) {
     window.location.href = './index.html';
   }

@@ -1,3 +1,5 @@
+import { loginUser } from './login.js';
+
 const registerNameInput = document.querySelector('#register-name');
 const registerEmailInput = document.querySelector('#register-email');
 const registerPasswordInput = document.querySelector('#register-password');
@@ -10,17 +12,7 @@ const registerPasswordError = document.querySelector(
   '#register-password__error'
 );
 
-async function registerUser() {
-  let nameValue = registerNameInput.value;
-  let emailValue = registerEmailInput.value;
-  let passwordValue = registerPasswordInput.value;
-
-  let user = {
-    name: nameValue,
-    email: emailValue,
-    password: passwordValue,
-  };
-
+async function registerUser(user) {
   const res = await fetch(
     'https://api.noroff.dev/api/v1/social/auth/register',
     {
@@ -33,10 +25,10 @@ async function registerUser() {
   );
   const data = await res.json();
   console.log(data);
-  registerValidation(data);
+  registerValidation(data, user);
 }
 
-const registerValidation = (data) => {
+const registerValidation = (data, user) => {
   registerNameError.innerHTML = '';
   registerEmailError.innerHTML = '';
   registerPasswordError.innerHTML = '';
@@ -77,14 +69,18 @@ const registerValidation = (data) => {
     registerMessage.innerHTML = `
     <p class="${style}">${successMessage}</p>
     `;
-    setTimeout(() => {
-      // add auto login user
-    }, 1000);
+    loginUser(user);
+    console.log('auto logged in');
   }
 };
 
 registerButton.addEventListener('click', (e) => {
   e.preventDefault();
-  registerUser();
+  let user = {
+    name: registerNameInput.value,
+    email: registerEmailInput.value,
+    password: registerPasswordInput.value,
+  };
+  registerUser(user);
   console.log('clicked');
 });

@@ -3,15 +3,7 @@ const loginPasswordInput = document.querySelector('#login-password');
 const loginMessage = document.querySelector('#login-message');
 const loginButton = document.querySelector('#login-button');
 
-async function loginUser() {
-  let emailValue = loginEmailInput.value;
-  let passwordValue = loginPasswordInput.value;
-
-  let user = {
-    email: emailValue,
-    password: passwordValue,
-  };
-
+export async function loginUser(user) {
   const res = await fetch('https://api.noroff.dev/api/v1/social/auth/login', {
     method: 'POST',
     headers: {
@@ -39,12 +31,16 @@ const loginValidation = (data) => {
     <p class="${style}">${successMessage}</p>
     `;
     setTimeout(() => {
-      window.location = './post-page.html';
+      window.location = './feed.html';
     }, 1000);
   }
 };
 
 loginButton.addEventListener('click', (e) => {
   e.preventDefault();
-  loginUser();
+  let user = {
+    email: loginEmailInput.value,
+    password: loginPasswordInput.value,
+  };
+  loginUser(user);
 });

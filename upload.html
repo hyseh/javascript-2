@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/css/main.css" />
+    <script type="module" src="./js/upload.js"></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="./feed.html">feed</a></li>
+        <li><a href="./upload.html">upload</a></li>
+      </ul>
+    </nav>
+
+    <form>
+      <h2>Upload</h2>
+      <div>
+        <label for="upload-title">Title</label>
+        <input id="upload-title" type="text" />
+      </div>
+      <div>
+        <label for="upload-body">Body</label>
+        <input id="upload-body" type="text" />
+      </div>
+      <div>
+        <label for="upload-tags">Tags</label>
+        <p>Tags are separated by comma</p>
+        <input id="upload-tags" type="text" />
+      </div>
+      <div>
+        <label for="upload-media">Media</label>
+        <input id="upload-media" type="text" />
+      </div>
+      <div id="upload-message"></div>
+      <button id="upload-button" type="submit">Upload</button>
+    </form>
+  </body>
+</html>
