@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/css/main.css" />
+    <script type="module" src="./js/update.js"></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="./feed.html">feed</a></li>
+        <li><a href="./upload.html">upload</a></li>
+      </ul>
+    </nav>
+
+    <form>
+      <h2>Update</h2>
+      <p>* Field is required</p>
+      <div>
+        <label for="update-title">Title*</label>
+        <input id="update-title" type="text" required />
+        <div id="update-title__error"></div>
+      </div>
+      <div>
+        <label for="update-body">Body</label>
+        <input id="update-body" type="text" />
+      </div>
+      <div>
+        <label for="update-tags">Tags</label>
+        <p>Tags are separated by comma</p>
+        <input id="update-tags" type="text" />
+      </div>
+      <div>
+        <label for="update-media">Media*</label>
+        <input id="update-media" type="text" required />
+        <div id="update-media__error"></div>
+      </div>
+      <div id="update-message"></div>
+      <button id="update-button" type="submit">update</button>
+    </form>
+  </body>
+</html>

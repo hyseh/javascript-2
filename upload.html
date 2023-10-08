@@ -17,9 +17,11 @@
 
     <form>
       <h2>Upload</h2>
+      <p>* Field is required</p>
       <div>
-        <label for="upload-title">Title</label>
-        <input id="upload-title" type="text" />
+        <label for="upload-title">Title*</label>
+        <input id="upload-title" type="text" required />
+        <div id="upload-title__error"></div>
       </div>
       <div>
         <label for="upload-body">Body</label>
@@ -31,8 +33,9 @@
         <input id="upload-tags" type="text" />
       </div>
       <div>
-        <label for="upload-media">Media</label>
-        <input id="upload-media" type="text" />
+        <label for="upload-media">Media*</label>
+        <input id="upload-media" type="text" required />
+        <div id="upload-media__error"></div>
       </div>
       <div id="upload-message"></div>
       <button id="upload-button" type="submit">Upload</button>

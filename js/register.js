@@ -1,4 +1,6 @@
-import { loginUser } from './login.js';
+import { BASE_URL, LOGIN_ENDPOINT, REGISTER_ENDPOINT } from './utility/api.js';
+import { loginUser } from './utility/post.js';
+import { registerUser } from './utility/post.js';
 
 const registerNameInput = document.querySelector('#register-name');
 const registerEmailInput = document.querySelector('#register-email');
@@ -12,22 +14,6 @@ const registerPasswordError = document.querySelector(
   '#register-password__error'
 );
 
-async function registerUser(user) {
-  const res = await fetch(
-    'https://api.noroff.dev/api/v1/social/auth/register',
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(user),
-    }
-  );
-  const data = await res.json();
-  console.log(data);
-  registerValidation(data, user);
-}
-
 const registerValidation = (data, user) => {
   registerNameError.innerHTML = '';
   registerEmailError.innerHTML = '';
@@ -35,8 +21,6 @@ const registerValidation = (data, user) => {
 
   if (data.errors) {
     for (let i = 0; i < data.errors.length; i++) {
-      // console.log(data.errors[i]);
-
       if (data.errors[0].message === 'Profile already exists') {
         let errorMessage = 'Error! Profile already exists.';
         let style = 'register-error';
@@ -69,8 +53,23 @@ const registerValidation = (data, user) => {
     registerMessage.innerHTML = `
     <p class="${style}">${successMessage}</p>
     `;
-    loginUser(user);
+    loginUser(BASE_URL, LOGIN_ENDPOINT, user, autoLogin);
     console.log('auto logged in');
+  }
+};
+
+export const autoLogin = (data) => {
+  if (data.errors) {
+    let errorMessage = data.errors[0].message;
+    let style = 'login-error';
+    registerMessage.innerHTML = `
+    <p class="${style}">${errorMessage}</p>
+    `;
+  } else {
+    localStorage.setItem('token', data.accessToken);
+    setTimeout(() => {
+      window.location = './feed.html';
+    }, 1000);
   }
 };
 
@@ -81,6 +80,5 @@ registerButton.addEventListener('click', (e) => {
     email: registerEmailInput.value,
     password: registerPasswordInput.value,
   };
-  registerUser(user);
-  console.log('clicked');
+  registerUser(BASE_URL, REGISTER_ENDPOINT, user, registerValidation);
 });

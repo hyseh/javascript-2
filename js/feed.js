@@ -1,7 +1,35 @@
-const logoutButton = document.querySelector('#logout-button');
-const logoutMessage = document.querySelector('#logout-message');
+import { BASE_URL, POSTS_ENDPOINT } from './utility/api.js';
+import { getPosts } from './utility/get.js';
 
 const feedContainer = document.querySelector('#feed-container');
+
+const renderPosts = (data) => {
+  data.forEach((post) => {
+    const { body, id, media, tags, title } = post;
+
+    feedContainer.innerHTML += `
+    <div class="post-container">
+      <a href="./post.html?id=${id}">
+        <div class="post-image__container">
+          <img class="post-image" src="${media}" />
+        </div>
+        <h2 class="post-title">${title}</h2>
+        <p class="post-body">${body}</p>
+        <p class="post-id">${id}</p>
+        <p class="post-tags">${tags}</p>
+      </a>
+    </div>
+    `;
+  });
+};
+
+let limit = 5;
+let offset = 0;
+
+getPosts(BASE_URL, POSTS_ENDPOINT, limit, offset, renderPosts);
+
+const logoutButton = document.querySelector('#logout-button');
+const logoutMessage = document.querySelector('#logout-message');
 
 logoutButton.addEventListener('click', () => {
   localStorage.removeItem('token');
@@ -14,36 +42,3 @@ logoutButton.addEventListener('click', () => {
     window.location = './index.html';
   }, 1000);
 });
-
-async function getPosts() {
-  const token = localStorage.getItem('token');
-  const res = await fetch(
-    'https://api.noroff.dev/api/v1/social/posts?_tag=hyseh',
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'Application/json',
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
-  const data = await res.json();
-  console.log(data);
-  renderPosts(data, feedContainer);
-}
-
-const renderPosts = (data, target) => {
-  const { body, media, tags, title } = data;
-
-  data.forEach((post) => {
-    const { body, media, tags, title } = post;
-
-    target.innerHTML += `
-    <div class="">
-      <h2>${title}</h2>
-    </div>
-    `;
-  });
-};
-
-getPosts();

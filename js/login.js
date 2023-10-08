@@ -1,22 +1,12 @@
+import { BASE_URL, LOGIN_ENDPOINT } from './utility/api.js';
+import { loginUser } from './utility/post.js';
+
 const loginEmailInput = document.querySelector('#login-email');
 const loginPasswordInput = document.querySelector('#login-password');
 const loginMessage = document.querySelector('#login-message');
 const loginButton = document.querySelector('#login-button');
 
-export async function loginUser(user) {
-  const res = await fetch('https://api.noroff.dev/api/v1/social/auth/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(user),
-  });
-  const data = await res.json();
-  console.log(data);
-  loginValidation(data);
-}
-
-const loginValidation = (data) => {
+export const loginValidation = (data) => {
   if (data.errors) {
     let errorMessage = data.errors[0].message;
     let style = 'login-error';
@@ -42,5 +32,5 @@ loginButton.addEventListener('click', (e) => {
     email: loginEmailInput.value,
     password: loginPasswordInput.value,
   };
-  loginUser(user);
+  loginUser(BASE_URL, LOGIN_ENDPOINT, user, loginValidation);
 });
