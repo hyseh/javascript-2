@@ -41,7 +41,7 @@ const formValidation = () => {
 
   if (
     uploadTitleValue.length >= 3 &&
-    uploadTitleValue.length <= 20 &&
+    uploadTitleValue.length <= 30 &&
     !(uploadTitleValue === '')
   ) {
     uploadTitleError.innerHTML = '';

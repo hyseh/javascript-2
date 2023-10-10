@@ -3,46 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Hyseh - Home</title>
     <link rel="stylesheet" href="./dist/css/main.css" />
     <script type="module" src="./js/script.js"></script>
     <script type="module" src="./js/login.js"></script>
     <script type="module" src="./js/register.js"></script>
+    <script
+      src="./node_modules/bootstrap/dist/js/bootstrap.min.js"
+      defer
+    ></script>
+    <script src="./node_modules/@popperjs/core/dist/umd/popper-lite.min.js"></script>
   </head>
   <body>
-    <form>
-      <h2>Login</h2>
-      <div>
-        <label for="login-email">Din e-postadresse</label>
-        <input id="login-email" type="text" />
+    <main class="flex-shrink-0">
+      <div class="container-fluid">
+        <div class="row d-flex flex-column align-content-center mx-2">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-6 col-xxl-4 mb-3 p-0">
+            <form novalidate>
+              <div class="mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="login-email"
+                  placeholder="Email address"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="login-password"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+              <div id="login-message"></div>
+              <button
+                type="submit"
+                class="btn btn-primary w-100"
+                id="login-button"
+              >
+                Sign in
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
-      <div>
-        <label for="login-password">Ditt passord</label>
-        <input id="login-password" type="password" />
-      </div>
-      <div id="login-message"></div>
-      <button id="login-button" type="submit">Login</button>
-    </form>
 
-    <form>
-      <h2>Register</h2>
-      <div>
-        <label for="register-name">Ditt navn</label>
-        <input id="register-name" type="text" />
-        <div id="register-name__error"></div>
+      <div class="container-fluid">
+        <div class="row d-flex flex-column align-content-center mx-2">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-6 col-xxl-4 mb-3 p-0">
+            <p>
+              Don't have an account?
+              <a
+                class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
+                href="./register.html"
+                >Sign up</a
+              >
+            </p>
+          </div>
+        </div>
       </div>
-      <div>
-        <label for="register-email">Din e-postadresse</label>
-        <input id="register-email" type="text" />
-        <div id="register-email__error"></div>
-      </div>
-      <div>
-        <label for="register-password">Ditt passord</label>
-        <input id="register-password" type="password" />
-        <div id="register-password__error"></div>
-      </div>
-      <div id="register-message"></div>
-      <button id="register-button">Register</button>
-    </form>
+    </main>
   </body>
 </html>

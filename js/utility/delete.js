@@ -19,7 +19,7 @@ export async function deletePost(id, validate) {
   }
 }
 
-const deleteValidation = (data) => {
+export const deleteValidation = (data) => {
   const postMessage = document.querySelector('#post-message');
 
   if (data.errors) {
