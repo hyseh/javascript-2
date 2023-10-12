@@ -1,5 +1,6 @@
 import { BASE_URL, POSTS_ENDPOINT } from './utility/api.js';
 import { getPosts } from './utility/get.js';
+import { searchPosts } from './utility/search.js';
 
 const renderPosts = (data) => {
   const feedContainer = document.querySelector('#feed-container');
@@ -46,6 +47,12 @@ logoutButton.addEventListener('click', () => {
   setTimeout(() => {
     window.location = './index.html';
   }, 1000);
+});
+
+const searchInput = document.querySelector('#search-input');
+
+searchInput.addEventListener('input', (e) => {
+  searchPosts(searchInput);
 });
 
 /*

@@ -18,24 +18,3 @@ export async function deletePost(id, validate) {
     console.log(error);
   }
 }
-
-export const deleteValidation = (data) => {
-  const postMessage = document.querySelector('#post-message');
-
-  if (data.errors) {
-    let errorMessage = data.errors[0].message;
-    let style = 'delete-error';
-    postMessage.innerHTML = `
-    <p class="${style}">${errorMessage}</p>
-    `;
-  } else {
-    let successMessage = 'Success! Post was deleted.';
-    let style = 'delete-success';
-    postMessage.innerHTML = `
-    <p class="${style}">${successMessage}</p>
-    `;
-    setTimeout(() => {
-      window.location = './feed.html';
-    }, 1000);
-  }
-};

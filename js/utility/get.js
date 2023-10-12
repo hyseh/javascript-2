@@ -19,7 +19,7 @@ export async function getPosts(url, endpoint, limit, offset, render) {
   }
 }
 
-export async function getPostSpecific(url, endpoint, id, render) {
+export async function getPostSpecific(url, endpoint, id, render, update) {
   let author = '?_author=true';
   let comments = '&_comments=true';
   let param = `${author}${comments}`;
@@ -35,6 +35,7 @@ export async function getPostSpecific(url, endpoint, id, render) {
     const data = await res.json();
     console.log(data);
     render(data);
+    update(data);
   } catch (error) {
     console.log(error);
   }
