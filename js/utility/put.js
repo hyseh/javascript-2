@@ -1,4 +1,4 @@
-export async function updatePost(url, endpoint, id, post) {
+export async function updatePost(url, endpoint, id, post, validate) {
   try {
     const token = localStorage.getItem('token');
     const res = await fetch(url + endpoint + id, {
@@ -11,6 +11,7 @@ export async function updatePost(url, endpoint, id, post) {
     });
     const data = await res.json();
     console.log(data);
+    validate(data);
   } catch (error) {
     console.log(error);
   }
