@@ -37,7 +37,6 @@ const updateTitle = document.querySelector('#update-title');
 const updateBody = document.querySelector('#update-body');
 const updateTags = document.querySelector('#update-tags');
 const updateMedia = document.querySelector('#update-media');
-const updateMessage = document.querySelector('#update-message');
 const updateTitleError = document.querySelector('#update-title__error');
 const updateMediaError = document.querySelector('#update-media__error');
 
@@ -63,8 +62,29 @@ updateButton.addEventListener('click', (e) => {
     tags: tagsArr(updateTags),
     media: updateMedia.value,
   };
-  updatePost(BASE_URL, POSTS_ENDPOINT, id, post);
+  updatePost(BASE_URL, POSTS_ENDPOINT, id, post, updateValidation);
 });
+
+const updateValidation = (data) => {
+  const updateMessage = document.querySelector('#update-message');
+
+  if (data.errors) {
+    let errorMessage = data.errors[0].message;
+    let style = 'update-error';
+    updateMessage.innerHTML = `
+    <p class="${style}">${errorMessage}</p>
+    `;
+  } else {
+    let successMessage = 'Success! Post was updated.';
+    let style = 'update-success';
+    updateMessage.innerHTML = `
+    <p class="${style}">${successMessage}</p>
+    `;
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  }
+};
 
 deleteButton.addEventListener('click', (e) => {
   e.preventDefault();
