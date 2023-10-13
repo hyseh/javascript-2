@@ -15,7 +15,7 @@ export const loginValidation = (data) => {
     `;
   } else {
     localStorage.setItem('token', data.accessToken);
-    // localStorage.setItem('name', data.name);
+    localStorage.setItem('name', data.name);
     let successMessage = 'Success! You logged in.';
     let style = 'login-success';
     loginMessage.innerHTML = `
