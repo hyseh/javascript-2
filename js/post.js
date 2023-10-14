@@ -8,17 +8,46 @@ const queryString = document.location.search;
 const param = new URLSearchParams(queryString);
 const id = param.get('id');
 
+const renderOptions = () => {
+  const postOptions = document.querySelector('#post-options');
+
+  postOptions.innerHTML += `
+  <div class="row d-flex flex-column align-content-center mx-2">
+    <div class="col-12 col-md-8 col-lg-6 col-xl-6 col-xxl-4 mb-3 p-0">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">Options</button>
+        <ul class="dropdown-menu w-100">
+          <li>
+            <button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#update-modal">Update post</button>
+          </li>
+          <li>
+            <button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#delete-modal">Delete post</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  `;
+};
+
 const renderPostSpecific = (data) => {
   const postContainer = document.querySelector('#post-container');
+  const username = localStorage.getItem('name');
 
   const { author, body, media, tags, title } = data;
+
+  if (author.name === username) {
+    renderOptions();
+  }
 
   if (body === '') {
     postContainer.innerHTML = `
     <img src="${media}" class="card-img img-fluid" alt="${title}" loading="lazy" />
     <div class="card-body">
       <h5 class="card-title mb-3 post-title">${title}</h5>
-      <h6 class="card-subtitle text-body-secondary mb-2 post-author">@${author.name}</h6>
+      <h6 class="card-subtitle text-body-secondary mb-2 post-author">
+        <a class="link-secondary link-underline link-underline-opacity-0" href="./profile.html?name=${author.name}">@${author.name}</a>
+      </h6>
     </div>
     `;
   } else {
@@ -27,7 +56,9 @@ const renderPostSpecific = (data) => {
     <div class="card-body">
       <h5 class="card-title post-title">${title}</h5>
       <p class="card-text post-body">${body}</p>
-      <h6 class="card-subtitle text-body-secondary mb-2 post-author">@${author.name}</h6>
+      <h6 class="card-subtitle text-body-secondary mb-2 post-author">
+        <a class="link-secondary link-underline link-underline-opacity-0" href="./profile.html?name=${author.name}">@${author.name}</a>
+      </h6>
     </div>
     `;
   }
@@ -48,10 +79,7 @@ const updateForm = (data) => {
   updateMedia.value = data.media;
 };
 
-getPostSpecific(BASE_URL, POSTS_ENDPOINT, id, renderPostSpecific, updateForm);
-
 const updateButton = document.querySelector('#update-button');
-const deleteButton = document.querySelector('#delete-button');
 
 updateButton.addEventListener('click', (e) => {
   e.preventDefault();
@@ -86,6 +114,8 @@ const updateValidation = (data) => {
   }
 };
 
+const deleteButton = document.querySelector('#delete-button');
+
 deleteButton.addEventListener('click', (e) => {
   e.preventDefault();
   console.log('deleting');
@@ -112,3 +142,5 @@ const deleteValidation = (data) => {
     }, 1000);
   }
 };
+
+getPostSpecific(BASE_URL, POSTS_ENDPOINT, id, renderPostSpecific, updateForm);
