@@ -1,6 +1,4 @@
-const myFunc = () => {
-  // console.log(window.location.pathname);
-
+const checkToken = () => {
   if (
     (localStorage.getItem('token') &&
       window.location.pathname === '/index.html') ||
@@ -15,4 +13,18 @@ const myFunc = () => {
   }
 };
 
-myFunc();
+checkToken();
+
+const navProfile = () => {
+  const profileButton = document.querySelector('#profile-button');
+
+  if (window.location.pathname === '/profile.html') {
+  } else {
+    profileButton.addEventListener('click', () => {
+      let username = localStorage.getItem('name');
+      window.location.href = `./profile.html?name=${username}`;
+    });
+  }
+};
+
+navProfile();
