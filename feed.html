@@ -8,7 +8,6 @@
     <script type="module" src="./js/script.js"></script>
     <script type="module" src="./js/feed.js"></script>
     <script type="module" src="./js/upload.js"></script>
-    <script type="module" src="./js/search.js"></script>
     <script
       src="./node_modules/bootstrap/dist/js/bootstrap.min.js"
       defer
@@ -32,7 +31,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-lg-0">
               <li class="nav-item">
                 <a
                   class="nav-link active"
@@ -50,20 +49,14 @@
                   >Upload</a
                 >
               </li>
+            </ul>
+            <ul class="navbar-nav me-end mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" id="logout-button" type="button"
-                  >Sign out</a
+                <a class="nav-link" id="profile-button" type="button"
+                  >Profile</a
                 >
               </li>
             </ul>
-            <!--
-            <ul class="navbar-nav me-end mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Profile</a>
-              </li>
-            </ul>
-            <button class="btn btn-primary" type="button">Sign out</button>
-            -->
           </div>
         </div>
       </nav>
@@ -83,7 +76,7 @@
                   aria-label="Search"
                 />
               </div>
-              <div>
+              <div class="dropdown">
                 <button
                   class="btn btn-secondary dropdown-toggle"
                   type="button"
@@ -93,18 +86,28 @@
                   Filter
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#">Default</a></li>
-                  <li><a class="dropdown-item" href="#">Oldest</a></li>
-                  <li><a class="dropdown-item" href="#">Newest</a></li>
+                  <li>
+                    <button
+                      class="dropdown-item"
+                      id="filter-oldest"
+                      type="button"
+                    >
+                      Oldest
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="dropdown-item"
+                      id="filter-newest"
+                      type="button"
+                    >
+                      Newest
+                    </button>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div class="container-fluid">
-        <div class="row d-flex flex-column align-content-center mx-2">
           <div class="col-12 col-md-8 col-lg-6 col-xl-6 col-xxl-4 p-0">
             <button
               class="btn btn-secondary w-100"
@@ -211,14 +214,18 @@
       </div>
 
       <div class="container-fluid">
-        <div
-          class="row d-flex flex-column align-content-center mx-2"
-          id="feed-container"
-        >
+        <div class="row d-flex flex-column align-content-center mx-2">
           <div class="col-12 col-md-8 col-lg-6 col-xl-6 col-xxl-4 p-0">
             <hr />
           </div>
         </div>
+      </div>
+
+      <div class="container-fluid">
+        <div
+          class="row d-flex flex-column align-content-center mx-2"
+          id="feed-container"
+        ></div>
       </div>
     </main>
   </body>
