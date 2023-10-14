@@ -8,9 +8,9 @@ export const searchPosts = (input) => {
       .innerHTML.toLowerCase();
 
     if (title.includes(searchValue)) {
-      allPosts[i].style.display = '';
+      allPosts[i].classList.remove('search-hidden');
     } else {
-      allPosts[i].style.display = 'none';
+      allPosts[i].classList.add('search-hidden');
     }
   }
 };
