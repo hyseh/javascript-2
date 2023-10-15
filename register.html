@@ -6,7 +6,6 @@
     <title>Hyseh - Register</title>
     <link rel="stylesheet" href="./dist/css/main.css" />
     <script type="module" src="./js/script.js"></script>
-    <script type="module" src="./js/login.js"></script>
     <script type="module" src="./js/register.js"></script>
     <script
       src="./node_modules/bootstrap/dist/js/bootstrap.min.js"
@@ -15,51 +14,67 @@
     <script src="./node_modules/@popperjs/core/dist/umd/popper-lite.min.js"></script>
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="row d-flex flex-column align-content-center mx-2">
-        <div class="col-12 col-md-8 col-lg-6 col-xl-6 col-xxl-4 mb-3 p-0">
-          <form novalidate>
-            <div class="mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="register-name"
-                placeholder="Username"
-                required
-              />
-            </div>
-            <div id="register-name__error"></div>
-            <div class="mb-3">
-              <input
-                type="email"
-                class="form-control"
-                id="register-email"
-                placeholder="Email address"
-                required
-              />
-            </div>
-            <div id="register-email__error"></div>
-            <div class="mb-3">
-              <input
-                type="password"
-                class="form-control"
-                id="register-password"
-                placeholder="Password"
-                required
-              />
-            </div>
-            <div id="register-password__error"></div>
-            <div id="register-message"></div>
-            <button
-              type="submit"
-              class="btn btn-primary w-100"
-              id="register-button"
-            >
-              Register
-            </button>
-          </form>
+    <main class="flex-shrink-0">
+      <div
+        class="container-fluid d-flex flex-column justify-content-center vh-100"
+      >
+        <div class="row d-flex flex-column align-content-center mx-2">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-6 col-xxl-4 mb-3 p-0">
+            <form novalidate>
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="register-name"
+                  placeholder="Username"
+                  required
+                />
+              </div>
+              <div id="register-name__error"></div>
+              <div class="mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="register-email"
+                  placeholder="Email address"
+                  required
+                />
+              </div>
+              <div id="register-email__error"></div>
+              <div class="mb-3">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="register-password"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+              <div id="register-password__error"></div>
+              <div id="register-message"></div>
+              <button
+                type="submit"
+                class="btn btn-primary w-100"
+                id="register-button"
+              >
+                Register
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="row d-flex flex-column align-content-center mx-2">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-6 col-xxl-4 p-0">
+            <p class="mb-0">
+              Don't have an account?
+              <a
+                class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
+                href="./index.html"
+                >Log in</a
+              >
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </main>
   </body>
 </html>
