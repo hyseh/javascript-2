@@ -15,7 +15,9 @@ const renderPosts = (data) => {
         <img src="${media}" class="card-img img-fluid" alt="${title}" loading="lazy" />
         <div class="card-body">
           <h5 class="card-title mb-3 post-title">${title}</h5>
-          <h6 class="card-subtitle text-body-secondary mb-2 post-author">@${author.name}</h6>
+          <h6 class="card-subtitle text-body-secondary mb-2 post-author">
+            <a class="link-secondary link-underline link-underline-opacity-0 link-author" href="./profile.html?name=${author.name}">@${author.name}</a>
+          </h6>
           <a class="stretched-link" href="./post.html?id=${id}"></a>
         </div>
       </div>
@@ -27,7 +29,9 @@ const renderPosts = (data) => {
         <div class="card-body">
           <h5 class="card-title post-title">${title}</h5>
           <p class="card-text post-body">${body}</p>
-          <h6 class="card-subtitle text-body-secondary mb-2 post-author">@${author.name}</h6>
+          <h6 class="card-subtitle text-body-secondary mb-2 post-author">
+            <a class="link-secondary link-underline link-underline-opacity-0 link-author" href="./profile.html?name=${author.name}">@${author.name}</a>
+          </h6>
           <a class="stretched-link" href="./post.html?id=${id}"></a>
         </div>
       </div>
