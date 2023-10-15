@@ -83,14 +83,8 @@ const updateButton = document.querySelector('#update-button');
 
 updateButton.addEventListener('click', (e) => {
   e.preventDefault();
-  console.log('update');
-  let post = {
-    title: updateTitle.value,
-    body: updateBody.value,
-    tags: tagsArr(updateTags),
-    media: updateMedia.value,
-  };
-  updatePost(BASE_URL, POSTS_ENDPOINT, id, post, updateValidation);
+  console.log('updating');
+  updateFormValidation();
 });
 
 const updateValidation = (data) => {
@@ -111,6 +105,48 @@ const updateValidation = (data) => {
     setTimeout(() => {
       window.location.reload();
     }, 1000);
+  }
+};
+
+const updateFormValidation = () => {
+  let isTitleValid = false;
+  let isMediaValid = false;
+
+  let updateTitleValue = updateTitle.value.trim();
+  let updateMediaValue = updateMedia.value.trim();
+
+  if (updateTitleValue.length >= 3 && !(updateTitleValue === '')) {
+    updateTitleError.innerHTML = '';
+    isTitleValid = true;
+  } else {
+    updateTitleError.innerHTML = `
+    <p>Title must be more than 3 characters longs.</p>
+    `;
+    isTitleValid = false;
+  }
+
+  if (!(updateMediaValue === '')) {
+    updateMediaError.innerHTML = '';
+    isMediaValid = true;
+  } else {
+    updateMediaError.innerHTML = `
+    <p>Media is required.</p>
+    `;
+    isMediaValid = false;
+  }
+
+  if (isTitleValid === true && isMediaValid === true) {
+    console.log(isTitleValid, isMediaValid);
+    let post = {
+      title: updateTitle.value,
+      body: updateBody.value,
+      tags: tagsArr(updateTags),
+      media: updateMedia.value,
+    };
+    updatePost(BASE_URL, POSTS_ENDPOINT, id, post, updateValidation);
+  } else {
+    console.log(isTitleValid, isMediaValid);
+    console.log('form is not valid');
   }
 };
 
