@@ -90,26 +90,26 @@
                   <form novalidate>
                     <div class="mb-3">
                       <label for="upload-title" class="form-label"
-                        >Title*</label
+                        >Title *</label
                       >
                       <input
                         type="text"
-                        class="form-control"
+                        class="form-control mb-2"
                         id="upload-title"
-                        placeholder="Title"
+                        placeholder="Brown fox jumps over lazy dog"
                         required
                       />
                       <div id="upload-title__error"></div>
                     </div>
                     <div class="mb-3">
                       <label for="upload-body" class="form-label">Body</label>
-                      <input
+                      <textarea
                         type="text"
                         class="form-control"
                         id="upload-body"
-                        placeholder="Body"
+                        placeholder="The quick brown fox jumps over the lazy dog."
                         required
-                      />
+                      ></textarea>
                     </div>
                     <div class="mb-3">
                       <label for="upload-tags" class="form-label">Tags</label>
@@ -118,20 +118,20 @@
                         type="text"
                         class="form-control"
                         id="upload-tags"
-                        placeholder="Tags"
+                        placeholder="quick, fox, lazy, dog"
                         required
                       />
                     </div>
                     <div class="mb-3">
                       <label for="upload-media" class="form-label"
-                        >Media*</label
+                        >Media *</label
                       >
                       <p>Must be a valid and public URL</p>
                       <input
                         type="text"
-                        class="form-control"
+                        class="form-control mb-2"
                         id="upload-media"
-                        placeholder="Media"
+                        placeholder="https://url.com/image.jpg"
                         required
                       />
                       <div id="upload-media__error"></div>
