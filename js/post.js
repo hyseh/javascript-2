@@ -92,13 +92,13 @@ const updateValidation = (data) => {
 
   if (data.errors) {
     let errorMessage = data.errors[0].message;
-    let style = 'update-error';
+    let style = 'update-error mb-0';
     updateMessage.innerHTML = `
     <p class="${style}">${errorMessage}</p>
     `;
   } else {
     let successMessage = 'Success! Post was updated.';
-    let style = 'update-success';
+    let style = 'update-success mb-0';
     updateMessage.innerHTML = `
     <p class="${style}">${successMessage}</p>
     `;
@@ -120,7 +120,7 @@ const updateFormValidation = () => {
     isTitleValid = true;
   } else {
     updateTitleError.innerHTML = `
-    <p>Title must be more than 3 characters longs.</p>
+    <p class="mb-0">Title must be more than 3 characters longs.</p>
     `;
     isTitleValid = false;
   }
@@ -130,7 +130,7 @@ const updateFormValidation = () => {
     isMediaValid = true;
   } else {
     updateMediaError.innerHTML = `
-    <p>Media is required.</p>
+    <p class="mb-0">Media is required.</p>
     `;
     isMediaValid = false;
   }
@@ -163,13 +163,13 @@ const deleteValidation = (data) => {
 
   if (data.errors) {
     let errorMessage = data.errors[0].message;
-    let style = 'delete-error';
+    let style = 'delete-error mb-0';
     postMessage.innerHTML = `
     <p class="${style}">${errorMessage}</p>
     `;
   } else {
     let successMessage = 'Success! Post was deleted.';
-    let style = 'delete-success';
+    let style = 'delete-success mb-0';
     postMessage.innerHTML = `
     <p class="${style}">${successMessage}</p>
     `;

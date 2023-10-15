@@ -8,24 +8,22 @@ const uploadTags = document.querySelector('#upload-tags');
 const uploadMedia = document.querySelector('#upload-media');
 const uploadMessage = document.querySelector('#upload-message');
 const uploadButton = document.querySelector('#upload-button');
-
 const uploadTitleError = document.querySelector('#upload-title__error');
 const uploadMediaError = document.querySelector('#upload-media__error');
 
 const uploadValidation = (data) => {
   if (data.errors) {
     let errorMessage = data.errors[0].message;
-    let style = 'upload-error';
+    let style = 'upload-error mb-0';
     uploadMessage.innerHTML = `
     <p class="${style}">${errorMessage}</p>
     `;
   } else {
     let successMessage = 'Success! Post was created.';
-    let style = 'upload-success';
+    let style = 'upload-success mb-0';
     uploadMessage.innerHTML = `
     <p class="${style}">${successMessage}</p>
     `;
-
     setTimeout(() => {
       window.location = './feed.html';
     }, 1000);
@@ -44,7 +42,7 @@ const uploadFormValidation = () => {
     isTitleValid = true;
   } else {
     uploadTitleError.innerHTML = `
-    <p>Title must be more than 3 characters longs.</p>
+    <p class="mb-0">Title must be more than 3 characters longs.</p>
     `;
     isTitleValid = false;
   }
@@ -54,7 +52,7 @@ const uploadFormValidation = () => {
     isMediaValid = true;
   } else {
     uploadMediaError.innerHTML = `
-    <p>Media is required.</p>
+    <p class="mb-0">Media is required.</p>
     `;
     isMediaValid = false;
   }
