@@ -32,7 +32,7 @@ const uploadValidation = (data) => {
   }
 };
 
-const formValidation = () => {
+const uploadFormValidation = () => {
   let isTitleValid = false;
   let isMediaValid = false;
 
@@ -76,5 +76,5 @@ const formValidation = () => {
 
 uploadButton.addEventListener('click', (e) => {
   e.preventDefault();
-  formValidation();
+  uploadFormValidation();
 });
