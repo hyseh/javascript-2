@@ -39,16 +39,12 @@ const formValidation = () => {
   let uploadTitleValue = uploadTitle.value.trim();
   let uploadMediaValue = uploadMedia.value.trim();
 
-  if (
-    uploadTitleValue.length >= 3 &&
-    uploadTitleValue.length <= 30 &&
-    !(uploadTitleValue === '')
-  ) {
+  if (uploadTitleValue.length >= 3 && !(uploadTitleValue === '')) {
     uploadTitleError.innerHTML = '';
     isTitleValid = true;
   } else {
     uploadTitleError.innerHTML = `
-    <p>Title must be more than 3 characters long.</p>
+    <p>Title must be more than 3 characters longs.</p>
     `;
     isTitleValid = false;
   }
@@ -58,7 +54,7 @@ const formValidation = () => {
     isMediaValid = true;
   } else {
     uploadMediaError.innerHTML = `
-    <p>Media must be a fully formed URL.</p>
+    <p>Media is required.</p>
     `;
     isMediaValid = false;
   }
