@@ -18,7 +18,12 @@ checkToken();
 const navProfile = () => {
   const profileButton = document.querySelector('#profile-button');
 
-  if (window.location.pathname === '/profile.html') {
+  if (
+    window.location.pathname === '' ||
+    window.location.pathname === '/index.html' ||
+    window.location.pathname === '/register.html' ||
+    window.location.pathname === '/profile.html'
+  ) {
   } else {
     profileButton.addEventListener('click', () => {
       let username = localStorage.getItem('name');
