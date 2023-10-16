@@ -19,11 +19,16 @@
 }
 
 .search-hidden {
-  display: none;
-  visibility: hidden;
+  display: none !important;
+  visibility: hidden !important;
 }
 
 .options-hidden {
-  display: none;
-  visibility: hidden;
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.comments-hidden {
+  display: none !important;
+  visibility: hidden !important;
 }
