@@ -311,5 +311,37 @@
         ></div>
       </div>
     </div>
+
+    <div class="container-fluid">
+      <div class="row d-flex flex-column align-content-center mx-2">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-6 col-xxl-4 mb-3 h-100 p-0">
+          <div class="card">
+            <div
+              class="card-body comments-hidden"
+              id="comments-container"
+            ></div>
+            <div class="card-body d-flex flex-column gap-2">
+              <form class="d-flex gap-2" novalidate>
+                <input
+                  class="form-control w-100"
+                  id="comment-input"
+                  type="text"
+                  placeholder="Add a comment"
+                  aria-label="Comment"
+                />
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  id="comment-button"
+                >
+                  Post
+                </button>
+              </form>
+              <div id="comment-message"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
