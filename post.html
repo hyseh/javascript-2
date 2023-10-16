@@ -59,162 +59,163 @@
       </nav>
     </header>
 
-    <div class="container-fluid" id="post-options"></div>
+    <main>
+      <div class="container-fluid" id="post-options"></div>
 
-    <div class="container-fluid">
-      <div class="row d-flex flex-column align-content-center mx-2">
-        <div class="col-12 col-md-8 col-lg-6 col-xl-6 col-xxl-4 p-0">
-          <div
-            class="modal fade modal-fluid"
-            id="upload-modal"
-            tabindex="-1"
-            aria-labelledby="upload-modal-label"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="upload-modal-label">
-                    Upload post
-                  </h1>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body">
-                  <form novalidate>
-                    <div class="mb-3">
-                      <label for="upload-title" class="form-label"
-                        >Title *</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control mb-2"
-                        id="upload-title"
-                        placeholder="Brown fox jumps over lazy dog"
-                        required
-                      />
-                      <div id="upload-title__error"></div>
-                    </div>
-                    <div class="mb-3">
-                      <label for="upload-body" class="form-label">Body</label>
-                      <textarea
-                        type="text"
-                        class="form-control"
-                        id="upload-body"
-                        placeholder="The quick brown fox jumps over the lazy dog."
-                        required
-                      ></textarea>
-                    </div>
-                    <div class="mb-3">
-                      <label for="upload-tags" class="form-label">Tags</label>
-                      <p class="mb-2">Tags are separated by comma</p>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="upload-tags"
-                        placeholder="quick, fox, lazy, dog"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="upload-media" class="form-label"
-                        >Media *</label
-                      >
-                      <p class="mb-2">Must be a valid and public URL</p>
-                      <input
-                        type="text"
-                        class="form-control mb-2"
-                        id="upload-media"
-                        placeholder="https://url.com/image.jpg"
-                        required
-                      />
-                      <div id="upload-media__error"></div>
-                    </div>
-                    <div id="upload-message"></div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    id="upload-button"
-                  >
-                    Upload
-                  </button>
+      <div class="container-fluid">
+        <div class="row d-flex flex-column align-content-center mx-2">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-6 col-xxl-4 p-0">
+            <div
+              class="modal fade modal-fluid"
+              id="upload-modal"
+              tabindex="-1"
+              aria-labelledby="upload-modal-label"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="upload-modal-label">
+                      Upload post
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <form novalidate>
+                      <div class="mb-3">
+                        <label for="upload-title" class="form-label"
+                          >Title *</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control mb-2"
+                          id="upload-title"
+                          placeholder="Brown fox jumps over lazy dog"
+                          required
+                        />
+                        <div id="upload-title__error"></div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="upload-body" class="form-label">Body</label>
+                        <textarea
+                          type="text"
+                          class="form-control"
+                          id="upload-body"
+                          placeholder="The quick brown fox jumps over the lazy dog."
+                          required
+                        ></textarea>
+                      </div>
+                      <div class="mb-3">
+                        <label for="upload-tags" class="form-label">Tags</label>
+                        <p class="mb-2">Tags are separated by comma</p>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="upload-tags"
+                          placeholder="quick, fox, lazy, dog"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="upload-media" class="form-label"
+                          >Media *</label
+                        >
+                        <p class="mb-2">Must be a valid and public URL</p>
+                        <input
+                          type="text"
+                          class="form-control mb-2"
+                          id="upload-media"
+                          placeholder="https://url.com/image.jpg"
+                          required
+                        />
+                        <div id="upload-media__error"></div>
+                      </div>
+                      <div id="upload-message"></div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      id="upload-button"
+                    >
+                      Upload
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div
-            class="modal fade"
-            id="update-modal"
-            tabindex="-1"
-            aria-labelledby="update-modal-label"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="update-modal-label">
-                    Update post
-                  </h1>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body">
-                  <form novalidate>
-                    <div class="mb-3">
-                      <label for="update-title" class="form-label"
-                        >Title*</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control mb-2"
-                        id="update-title"
-                        placeholder="Title"
-                        required
-                      />
-                      <div id="update-title__error"></div>
-                    </div>
-                    <div class="mb-3">
-                      <label for="update-body" class="form-label">Body</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="update-body"
-                        placeholder="Body"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="update-tags" class="form-label">Tags</label>
-                      <p class="mb-2">Tags are separated by comma</p>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="update-tags"
-                        placeholder="Tags"
-                        required
-                      />
-                    </div>
-                    <!-- DISABLED MEDIA UPDATE -->
-                    <!-- <div class="mb-3">
+            <div
+              class="modal fade"
+              id="update-modal"
+              tabindex="-1"
+              aria-labelledby="update-modal-label"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="update-modal-label">
+                      Update post
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <form novalidate>
+                      <div class="mb-3">
+                        <label for="update-title" class="form-label"
+                          >Title*</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control mb-2"
+                          id="update-title"
+                          placeholder="Title"
+                          required
+                        />
+                        <div id="update-title__error"></div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="update-body" class="form-label">Body</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="update-body"
+                          placeholder="Body"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="update-tags" class="form-label">Tags</label>
+                        <p class="mb-2">Tags are separated by comma</p>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="update-tags"
+                          placeholder="Tags"
+                          required
+                        />
+                      </div>
+                      <!-- DISABLED MEDIA UPDATE -->
+                      <!-- <div class="mb-3">
                       <label for="update-media" class="form-label"
                         >Media*</label
                       >
@@ -228,121 +229,124 @@
                       />
                       <div id="update-media__error"></div>
                     </div> -->
-                    <div id="update-message"></div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    id="update-button"
-                  >
-                    Update
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="modal fade"
-            id="delete-modal"
-            tabindex="-1"
-            aria-labelledby="delete-modal-label"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="delete-modal-label">
-                    Delete post
-                  </h1>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body">
-                  <form novalidate>
-                    <div>
-                      <p class="mb-0">
-                        This will delete this post permanently.
-                      </p>
-                    </div>
-                    <div id="delete-message"></div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-danger"
-                    id="delete-button"
-                  >
-                    Delete
-                  </button>
+                      <div id="update-message"></div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      id="update-button"
+                    >
+                      Update
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="container-fluid">
-      <div class="row d-flex flex-column align-content-center mx-2">
-        <div
-          class="card col-12 col-md-8 col-lg-6 col-xl-6 col-xxl-4 mb-3 h-100 p-0 post-container"
-          id="post-container"
-        ></div>
-      </div>
-    </div>
-
-    <div class="container-fluid">
-      <div class="row d-flex flex-column align-content-center mx-2">
-        <div class="col-12 col-md-8 col-lg-6 col-xl-6 col-xxl-4 mb-3 h-100 p-0">
-          <div class="card">
             <div
-              class="card-body comments-hidden"
-              id="comments-container"
-            ></div>
-            <div class="card-body d-flex flex-column gap-2">
-              <form class="d-flex gap-2" novalidate>
-                <input
-                  class="form-control w-100"
-                  id="comment-input"
-                  type="text"
-                  placeholder="Add a comment"
-                  aria-label="Comment"
-                />
-                <button
-                  type="submit"
-                  class="btn btn-primary"
-                  id="comment-button"
-                >
-                  Post
-                </button>
-              </form>
-              <div id="comment-message"></div>
+              class="modal fade"
+              id="delete-modal"
+              tabindex="-1"
+              aria-labelledby="delete-modal-label"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="delete-modal-label">
+                      Delete post
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <form novalidate>
+                      <div>
+                        <p class="mb-0">
+                          This will delete this post permanently.
+                        </p>
+                      </div>
+                      <div id="delete-message"></div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      id="delete-button"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <div class="container-fluid">
+        <div class="row d-flex flex-column align-content-center mx-2">
+          <div
+            class="card col-12 col-md-8 col-lg-6 col-xl-6 col-xxl-4 mb-3 h-100 p-0 post-container"
+            id="post-container"
+          ></div>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row d-flex flex-column align-content-center mx-2">
+          <div
+            class="col-12 col-md-8 col-lg-6 col-xl-6 col-xxl-4 mb-3 h-100 p-0"
+          >
+            <div class="card">
+              <div
+                class="card-body comments-hidden"
+                id="comments-container"
+              ></div>
+              <div class="card-body d-flex flex-column gap-2">
+                <form class="d-flex gap-2" novalidate>
+                  <input
+                    class="form-control w-100"
+                    id="comment-input"
+                    type="text"
+                    placeholder="Add a comment"
+                    aria-label="Comment"
+                  />
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    id="comment-button"
+                  >
+                    Post
+                  </button>
+                </form>
+                <div id="comment-message"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
