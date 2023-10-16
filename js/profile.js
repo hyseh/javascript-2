@@ -75,6 +75,12 @@ const renderProfilePosts = (data) => {
   const feedContainer = document.querySelector('#feed-container');
   const { posts } = data;
 
+  posts.sort((a, b) => {
+    return new Date(b.created) - new Date(a.created);
+  });
+
+  console.log(posts);
+
   posts.forEach((post) => {
     const { owner, body, id, media, tags, title } = post;
 
