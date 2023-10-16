@@ -8,7 +8,6 @@ export async function loginUser(url, endpoint, user, validate) {
       body: JSON.stringify(user),
     });
     const data = await res.json();
-    console.log(data);
     validate(data, user);
   } catch (error) {
     console.log(error);
@@ -25,7 +24,6 @@ export async function registerUser(url, endpoint, user, validate) {
       body: JSON.stringify(user),
     });
     const data = await res.json();
-    console.log(data);
     validate(data, user);
   } catch (error) {
     console.log(error);
@@ -44,7 +42,6 @@ export async function uploadPost(url, endpoint, post, validate) {
       body: JSON.stringify(post),
     });
     const data = await res.json();
-    console.log(data);
     validate(data);
   } catch (error) {
     console.log(error);
@@ -63,7 +60,6 @@ export async function postComment(url, endpoint, id, comment, validate) {
       body: JSON.stringify(comment),
     });
     const data = await res.json();
-    console.log(data);
     validate(data);
   } catch (error) {
     console.log(error);

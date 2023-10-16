@@ -10,7 +10,6 @@ export async function updatePost(url, endpoint, id, post, validate) {
       body: JSON.stringify(post),
     });
     const data = await res.json();
-    console.log(data);
     validate(data);
   } catch (error) {
     console.log(error);

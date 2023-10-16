@@ -9,7 +9,6 @@ export async function deletePost(url, endpoint, id, validate) {
       },
     });
     const data = await res.json();
-    console.log(data);
     validate(data);
   } catch (error) {
     console.log(error);

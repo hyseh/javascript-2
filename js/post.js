@@ -98,7 +98,6 @@ const updateTitleError = document.querySelector('#update-title__error');
 const updateMediaError = document.querySelector('#update-media__error');
 
 const updateForm = (data) => {
-  console.log('form was updated');
   updateTitle.value = data.title;
   updateBody.value = data.body;
   updateTags.value = data.tags;
@@ -109,7 +108,6 @@ const updateButton = document.querySelector('#update-button');
 
 updateButton.addEventListener('click', (e) => {
   e.preventDefault();
-  console.log('updating');
   updateFormValidation();
 });
 
@@ -163,7 +161,6 @@ const updateFormValidation = () => {
   }
 
   if (isTitleValid === true && isMediaValid === true) {
-    console.log(isTitleValid, isMediaValid);
     let post = {
       title: updateTitle.value,
       body: updateBody.value,
@@ -175,7 +172,6 @@ const updateFormValidation = () => {
   */
 
   if (isTitleValid === true) {
-    console.log(isTitleValid);
     let post = {
       title: updateTitle.value,
       body: updateBody.value,
@@ -189,7 +185,6 @@ const deleteButton = document.querySelector('#delete-button');
 
 deleteButton.addEventListener('click', (e) => {
   e.preventDefault();
-  console.log('deleting');
   deletePost(BASE_URL, POSTS_ENDPOINT, id, deleteValidation);
 });
 
@@ -220,7 +215,6 @@ const commentMessage = document.querySelector('#comment-message');
 
 commmentButton.addEventListener('click', (e) => {
   e.preventDefault();
-  console.log('post comment');
   commentFormValidation();
 });
 
@@ -259,14 +253,10 @@ const commentFormValidation = () => {
   }
 
   if (isCommentValid === true) {
-    console.log(isCommentValid);
     let comment = {
       body: commentInput.value,
     };
     postComment(BASE_URL, POSTS_ENDPOINT, id, comment, commentValidation);
-  } else {
-    console.log(isCommentValid);
-    console.log('commment is not valid');
   }
 };
 

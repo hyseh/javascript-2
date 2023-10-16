@@ -58,7 +58,6 @@ const uploadFormValidation = () => {
   }
 
   if (isTitleValid === true && isMediaValid === true) {
-    console.log(isTitleValid, isMediaValid);
     let post = {
       title: uploadTitle.value,
       body: uploadBody.value,
@@ -66,9 +65,6 @@ const uploadFormValidation = () => {
       media: uploadMedia.value,
     };
     uploadPost(BASE_URL, POSTS_ENDPOINT, post, uploadValidation);
-  } else {
-    console.log(isTitleValid, isMediaValid);
-    console.log('form is not valid');
   }
 };
 

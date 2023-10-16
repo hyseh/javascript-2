@@ -79,8 +79,6 @@ const renderProfilePosts = (data) => {
     return new Date(b.created) - new Date(a.created);
   });
 
-  console.log(posts);
-
   posts.forEach((post) => {
     const { owner, body, id, media, tags, title } = post;
 

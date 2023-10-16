@@ -54,7 +54,6 @@ const registerValidation = (data, user) => {
     <p class="${style}">${successMessage}</p>
     `;
     loginUser(BASE_URL, LOGIN_ENDPOINT, user, autoLogin);
-    console.log('auto logged in');
   }
 };
 

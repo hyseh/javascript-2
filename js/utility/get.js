@@ -12,7 +12,6 @@ export async function getPosts(url, endpoint, limit, offset, sort, render) {
       },
     });
     const data = await res.json();
-    console.log(data);
     render(data);
   } catch (error) {
     console.log(error);
@@ -33,7 +32,6 @@ export async function getPostSpecific(url, endpoint, id, render, update) {
       },
     });
     const data = await res.json();
-    console.log(data);
     render(data);
     update(data);
   } catch (error) {
@@ -42,10 +40,8 @@ export async function getPostSpecific(url, endpoint, id, render, update) {
 }
 
 export async function getProfile(url, endpoint, id, render) {
-  let author = '?_author=true';
   let posts = '?_posts=true';
   let param = `${posts}`;
-
   try {
     const token = localStorage.getItem('token');
     const res = await fetch(url + endpoint + id + param, {
@@ -56,7 +52,6 @@ export async function getProfile(url, endpoint, id, render) {
       },
     });
     const data = await res.json();
-    console.log(data);
     render(data);
   } catch (error) {
     console.log(error);
