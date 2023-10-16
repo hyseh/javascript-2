@@ -1,6 +1,7 @@
 import { BASE_URL, POSTS_ENDPOINT } from './utility/api.js';
 import { getPostSpecific } from './utility/get.js';
 import { tagsArr } from './utility/tags.js';
+import { postComment } from './utility/post.js';
 import { updatePost } from './utility/put.js';
 import { deletePost } from './utility/delete.js';
 
@@ -30,11 +31,29 @@ const renderOptions = () => {
   `;
 };
 
+const commentsContainer = document.querySelector('#comments-container');
+
+const renderComments = (data) => {
+  const { comments } = data;
+
+  comments.forEach((comment) => {
+    const { author, body } = comment;
+    commentsContainer.innerHTML += `
+    <div class="d-flex">
+      <a class="link-secondary link-underline link-underline-opacity-0 me-2" href="./profile.html?name=${author.name}">
+        <p class="card-text text-body-secondary comment-author">@${author.name}</p>
+      </a>
+      <p class="card-text comment-body">${body}</p>
+    </div>
+    `;
+  });
+};
+
 const renderPostSpecific = (data) => {
   const postContainer = document.querySelector('#post-container');
   const username = localStorage.getItem('name');
 
-  const { author, body, media, tags, title } = data;
+  const { author, comments, body, media, tags, title } = data;
 
   if (author.name === username) {
     renderOptions();
@@ -61,6 +80,13 @@ const renderPostSpecific = (data) => {
       </h6>
     </div>
     `;
+  }
+
+  if (comments.length === 0) {
+  } else {
+    commentsContainer.classList.remove('comments-hidden');
+    commentsContainer.classList.add('d-flex', 'flex-column', 'gap-2', 'pb-0');
+    renderComments(data);
   }
 };
 
@@ -176,6 +202,62 @@ const deleteValidation = (data) => {
     setTimeout(() => {
       window.location = './feed.html';
     }, 1000);
+  }
+};
+
+const commentInput = document.querySelector('#comment-input');
+const commmentButton = document.querySelector('#comment-button');
+const commentMessage = document.querySelector('#comment-message');
+
+commmentButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  console.log('post comment');
+  commentFormValidation();
+});
+
+const commentValidation = (data) => {
+  if (data.errors) {
+    let errorMessage = data.errors[0].message;
+    let style = 'comment-error mb-0';
+    commentMessage.innerHTML = `
+    <p class="${style}">${errorMessage}</p>
+    `;
+  } else {
+    let successMessage = 'Success! Comment was posted.';
+    let style = 'comment-success mb-0';
+    commentMessage.innerHTML = `
+    <p class="${style}">${successMessage}</p>
+    `;
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  }
+};
+
+const commentFormValidation = () => {
+  let isCommentValid = false;
+
+  let commentValue = commentInput.value;
+
+  if (commentValue.length >= 3 && !(commentValue === '')) {
+    commentMessage.innerHTML = '';
+    isCommentValid = true;
+  } else {
+    commentMessage.innerHTML = `
+    <p class="mb-0">Comment must be more than 3 characters longs.</p>
+    `;
+    isCommentValid = false;
+  }
+
+  if (isCommentValid === true) {
+    console.log(isCommentValid);
+    let comment = {
+      body: commentInput.value,
+    };
+    postComment(BASE_URL, POSTS_ENDPOINT, id, comment, commentValidation);
+  } else {
+    console.log(isCommentValid);
+    console.log('commment is not valid');
   }
 };
 
