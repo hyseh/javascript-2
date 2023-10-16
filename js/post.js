@@ -136,10 +136,10 @@ const updateValidation = (data) => {
 
 const updateFormValidation = () => {
   let isTitleValid = false;
-  let isMediaValid = false;
+  // DISABLED let isMediaValid = false;
 
   let updateTitleValue = updateTitle.value.trim();
-  let updateMediaValue = updateMedia.value.trim();
+  // DISABLED let updateMediaValue = updateMedia.value.trim();
 
   if (updateTitleValue.length >= 3 && !(updateTitleValue === '')) {
     updateTitleError.innerHTML = '';
@@ -151,6 +151,7 @@ const updateFormValidation = () => {
     isTitleValid = false;
   }
 
+  /* DISABLED MEDIA UPDATE
   if (!(updateMediaValue === '')) {
     updateMediaError.innerHTML = '';
     isMediaValid = true;
@@ -170,9 +171,17 @@ const updateFormValidation = () => {
       media: updateMedia.value,
     };
     updatePost(BASE_URL, POSTS_ENDPOINT, id, post, updateValidation);
-  } else {
-    console.log(isTitleValid, isMediaValid);
-    console.log('form is not valid');
+  }
+  */
+
+  if (isTitleValid === true) {
+    console.log(isTitleValid);
+    let post = {
+      title: updateTitle.value,
+      body: updateBody.value,
+      tags: tagsArr(updateTags),
+    };
+    updatePost(BASE_URL, POSTS_ENDPOINT, id, post, updateValidation);
   }
 };
 
