@@ -50,3 +50,22 @@ export async function uploadPost(url, endpoint, post, validate) {
     console.log(error);
   }
 }
+
+export async function postComment(url, endpoint, id, comment, validate) {
+  try {
+    const token = localStorage.getItem('token');
+    const res = await fetch(url + endpoint + id + '/comment', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(comment),
+    });
+    const data = await res.json();
+    console.log(data);
+    validate(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
