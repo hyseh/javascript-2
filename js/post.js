@@ -181,7 +181,7 @@ const deleteButton = document.querySelector('#delete-button');
 deleteButton.addEventListener('click', (e) => {
   e.preventDefault();
   console.log('deleting');
-  deletePost(id, deleteValidation);
+  deletePost(BASE_URL, POSTS_ENDPOINT, id, deleteValidation);
 });
 
 const deleteValidation = (data) => {
